@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleek Hamburger Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Header bar */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background: rgba(5, 8, 13, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 12px rgba(0, 170, 255, 0.2);
+      z-index: 1002;
+    }
+
+    /* Hamburger button */
+    .hamburger {
+      width: 32px;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3.5px;
+      background: #00aaff;
+      border-radius: 3px;
+      box-shadow: 0 0 6px rgba(0, 170, 255, 0.7);
+      transition: all 0.4s ease;
+    }
+
+    .hamburger:hover {
+      transform: scale(1.1);
+    }
+
+    /* Hamburger animation to X */
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+
+    /* Buttons */
+    .btn-container {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      background: transparent;
+      border: 1px solid #00aaff;
+      padding: 6px 16px;
+      border-radius: 25px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #00aaff;
+      color: #0d1b2a;
+      box-shadow: 0 0 12px rgba(0, 170, 255, 0.8);
+      transform: translateY(-2px);
+    }
+
+    /* Side nav menu */
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -240px;
+      width: 220px;
+      height: 100%;
+      background: rgba(5, 8, 13, 0.25);
+      color: white;
+      padding-top: 80px;
+      transition: left 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+      z-index: 1000;
+      box-shadow: 4px 0 25px rgba(0, 170, 255, 0.3);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-menu a {
+      display: block;
+      padding: 14px 22px;
+      text-decoration: none;
+      color: #f5f5f5;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      background: rgba(0, 170, 255, 0.15);
+      color: #00aaff;
+      padding-left: 30px;
+      text-shadow: 0 0 8px rgba(0, 170, 255, 0.8);
+    }
+
+    .nav-menu.active {
+      left: 0;
+    }
+
+    /* Search box */
+    .search_page {
+      margin: 100px auto 0;
+      text-align: center;
+    }
+
+    .search_page input[type="search"] {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      background: #111827;
+      color: white;
+      box-shadow: 0 0 12px rgba(0, 170, 255, 0.4);
+      width: 80%;
+      max-width: 320px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .search_page input[type="search"]:focus {
+      box-shadow: 0 0 18px rgba(0, 170, 255, 0.9);
+      transform: scale(1.05);
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .btn-container {
+        display: none;
+      }
+    }
+    
+    
+        /* Buttons (Sign In & Log In) */
+   .btn-container {
+  position: absolute;
+  top: 20px;
+  right: 46px; /* moved closer to the left */
+  display: flex;
+  gap: 10px;
+}
+    
+    .btn {
+      background: transparent;
+      border: 1px solid white;
+      padding: 6px 16px;
+      border-radius: 2em;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: #00aaff;
+      color: black;
+      box-shadow: 0 0 10px rgba(0, 170, 255, 0.7);
+      transform: scale(1.05);
+    }
+    
+  </style>
+</head>
+
+<body>
+  <!-- Header bar -->
+  <div class="header">
+    <!-- Hamburger button -->
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Sign In + Log In -->
+    <div class="btn-container">
+      <a class="btn" href="DM_Signin.html">Sign In</a>
+      <a class="btn" href="DM_Signi.html">Log In</a>
+    </div>
+  </div>
+
+  <!-- Side navigation -->
+  <div class="nav-menu" id="navMenu">
+    <a href="#">Home</a>
+    <a href="#">Orders</a>
+    <a href="#">Products</a>
+    <a href="#">Customers</a>
+    <a href="#">Marketing</a>
+    <a href="#">Discounts</a>
+    <a href="#">Content</a>
+    <a href="#">Market</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Settings</a>
+    <a href="#">Contact</a>
+  </div>
+  
+
+
+  <!-- Search bar -->
+  <div class="search_page">
+    <input type="search" placeholder="Search..." />
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navMenu = document.getElementById("navMenu");
+      const hamburger = document.getElementById("hamburger");
+      navMenu.classList.toggle("active");
+      hamburger.classList.toggle("active");
+    }
+  </script>
+</body>
+
+</html>
