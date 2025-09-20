@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elite Templates - Register</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #05080d, #0a1a2f);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Title */
+    .title {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
+      color: #00aaff;
+      font-size: 2.2rem;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 1px;
+      text-shadow: 0 0 15px rgba(0,170,255,0.7);
+    }
+
+    /* Register Box */
+    .register {
+      margin-top: 3rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 85%;
+      max-width: 420px;
+      box-shadow: 0 0 30px rgba(0, 170, 255, 0.25);
+      animation: fadeIn 1.2s ease;
+    }
+
+    .register h2 {
+      text-align: center;
+      color: #00aaff;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px rgba(0,170,255,0.6);
+    }
+
+    /* Input Fields */
+    .input-box {
+      position: relative;
+      margin-bottom: 1.4rem;
+    }
+
+    .input-box i {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      transform: translateY(-50%);
+      color: #00aaff;
+      font-size: 1.1rem;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 0.85rem 0.8rem 0.85rem 2.8rem;
+      border-radius: 8px;
+      border: 2px solid #00aaff;
+      outline: none;
+      font-size: 1rem;
+      background: #05080d;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .input-box input:focus {
+      border-color: #0088cc;
+      box-shadow: 0 0 12px rgba(0,170,255,0.6);
+    }
+
+    .input-box input::placeholder {
+      color: #aaa;
+    }
+
+    /* Button */
+    button {
+      width: 100%;
+      padding: 0.95rem;
+      background: linear-gradient(135deg, #00aaff, #0088cc);
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(0, 170, 255, 0.7);
+    }
+
+    /* Login link */
+    .login-link {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .login-link a {
+      color: #00aaff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      .title {
+        font-size: 1.8rem;
+        padding: 1rem;
+      }
+
+      .register {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title">Elite Templates</div>
+  </header>
+
+  <main>
+    <div class="register">
+      <h2>Create Your Account</h2>
+      <form action="Sho-Password.html">
+        <div class="input-box">
+          <i class="fas fa-user"></i>
+          <input type="text" id="user" name="user" placeholder="Full Name" required autocomplete="name">
+        </div>
+        <div class="input-box">
+          <i class="fas fa-id-badge"></i>
+          <input type="text" id="username" name="username" placeholder="Username" required autocomplete="username">
+        </div>
+        <div class="input-box">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="gmail" name="gmail" placeholder="Email Address" required autocomplete="email">
+        </div>
+        <div class="input-box">
+          <i class="fas fa-globe"></i>
+          <input type="text" id="country" name="country" placeholder="Country" required autocomplete="country">
+        </div>
+        <div class="input-box">
+          <i class="fas fa-phone"></i>
+          <input type="tel" id="numb" name="numb" placeholder="Phone Number" required autocomplete="tel">
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+      <div class="login-link">
+        Already have an account? <a href="Sho-Login.html">Login</a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
